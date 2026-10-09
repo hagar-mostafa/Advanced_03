@@ -67,6 +67,42 @@ public class Program
 
 
         #endregion
+
+        Console.WriteLine("\n\n ====================== Exercise 2: Leaderboard ======================\n");
+        #region Exercise 2: Leaderboard
+        SortedDictionary< int , string > Leaderboard = new SortedDictionary< int , string >()
+        {
+            {500 , "Ahmed" } ,
+            { 200 , "Sara" } ,
+            { 800 , "Ali" } ,
+            { 350 , "Mona" }
+        };
+        foreach (var item in Leaderboard)
+            Console.WriteLine ($" {item.Key}  , {item.Value}");
+
+        Console.WriteLine("\n ========================================================");
+
+        Console.WriteLine($"The first key is {Leaderboard.Keys.First()} , and it's value is {Leaderboard.Values.First()}");
+
+        Console.WriteLine("\n ========================================================");
+
+        bool exists = Leaderboard.ContainsKey(500);
+        Console.WriteLine($" Check if score 500 exists : {exists}");
+
+        Console.WriteLine("\n ========================================================");
+
+        if (Leaderboard.TryGetValue(900, out string val))
+            Console.WriteLine(val);
+        else
+            Console.WriteLine("The key Not found");
+
+        Console.WriteLine("\n ========================================================");
+
+        Leaderboard.Remove(200);
+        foreach (var item in Leaderboard)
+            Console.WriteLine($" {item.Key}  , {item.Value}");
+        #endregion
+
     }
 
 
