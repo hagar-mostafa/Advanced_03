@@ -103,6 +103,47 @@ public class Program
             Console.WriteLine($" {item.Key}  , {item.Value}");
         #endregion
 
+        Console.WriteLine("\n\n ====================== Exercise 3: Phone Book ======================\n");
+
+        #region Exercise 3: Phone Book
+        var phoneBook = new Dictionary<string, string>
+        {
+            { "Ahmed", "01012345678" },
+            { "Sara",  "01123456789" },
+            { "Omar",  "01234567890" },
+            { "Mona",  "01500000000" }
+        };
+
+      
+        phoneBook["Youssef"] = "01099999999";
+        phoneBook["Sara"] = "01100000000";
+
+        try
+        {
+            phoneBook.Add("Ahmed", "01111111111");
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+
+        bool added = phoneBook.TryAdd("Ahmed", "01111111111");
+        Console.WriteLine($"TryAdd succeeded? {added}");
+
+        if (phoneBook.TryGetValue("Khaled", out string number))
+            Console.WriteLine($"Khaled: {number}");
+        else
+            Console.WriteLine("Khaled was not found.");
+
+        string result = phoneBook.GetValueOrDefault("Khaled", "Not Found");
+        Console.WriteLine($"Khaled: {result}");
+
+        Console.WriteLine(string.Join(", ", phoneBook.Keys));
+        Console.WriteLine(string.Join(", ", phoneBook.Values));
+   
+
+
+        #endregion
     }
 
 
