@@ -210,6 +210,35 @@ public class Program
 
         #endregion
 
+        Console.WriteLine("\n ====================== Exercise 6: Browser History (Undo) ======================\n");
+        #region Exercise 6: Browser History (Undo)
+
+        var history = new Stack<string>();
+
+        history.Push("google.com");
+        history.Push("github.com");
+        history.Push("stackoverflow.com");
+        history.Push("youtube.com");
+        history.Push("claude.ai");
+
+        Console.WriteLine($"Current page: {history.Peek()}");
+
+        for (int i = 0; i < 3; i++)
+        {
+            string leaving = history.Pop();
+            Console.WriteLine($"Leaving: {leaving}");
+        }
+
+        Console.WriteLine($"Current page: {history.Peek()}");
+
+        while (history.Count > 0)
+            history.Pop();
+
+        bool popOk = history.TryPop(out string popped);
+        Console.WriteLine($"TryPop succeeded? {popOk}, result: {(popped )}");
+    
+        #endregion
+
     }
 
 
