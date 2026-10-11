@@ -140,10 +140,49 @@ public class Program
 
         Console.WriteLine(string.Join(", ", phoneBook.Keys));
         Console.WriteLine(string.Join(", ", phoneBook.Values));
-   
+
 
 
         #endregion
+
+        Console.WriteLine("\n ====================== Exercise 4: Unique Email Validator ======================\n");
+
+        #region Exercise 4: Unique Email Validator
+        var emails = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        string[] input = { "ahmed@test.com", "AHMED@test.com", "sara@test.com", "Sara@Test.Com" };
+        foreach (var email in input)
+        {
+            bool add = emails.Add(email);
+            Console.WriteLine($"Add \"{email}\" -> {add}");
+        }
+
+        Console.WriteLine($"Count: {emails.Count}");
+        Console.WriteLine("Stored: " + string.Join(", ", emails)); // use string join instead of foreach 
+
+        var setA = new HashSet<int> { 1, 2, 3, 4, 5 };
+        var setB = new HashSet<int> { 4, 5, 6, 7, 8 };
+
+        var union = new HashSet<int>(setA);
+        union.UnionWith(setB);
+        Console.WriteLine("Union:     " + string.Join(", ", union));
+
+        var intersect = new HashSet<int>(setA);
+        intersect.IntersectWith(setB);
+        Console.WriteLine("Intersect: " + string.Join(", ", intersect));
+
+        var except = new HashSet<int>(setA);
+        except.ExceptWith(setB);
+        Console.WriteLine("Except:    " + string.Join(", ", except));
+
+        var small = new HashSet<int> { 1, 2 };
+        Console.WriteLine($"{{1,2}} is subset of A? {small.IsSubsetOf(setA)}");
+
+        Console.WriteLine();
+
+
+        #endregion
+
     }
 
 
