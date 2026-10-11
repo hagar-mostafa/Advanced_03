@@ -179,7 +179,34 @@ public class Program
         Console.WriteLine($"{{1,2}} is subset of A? {small.IsSubsetOf(setA)}");
 
         Console.WriteLine();
+        #endregion
 
+        Console.WriteLine("\n ======================Exercise 5: Print Queue Simulator  ======================\n");
+
+        #region Exercise 5: Print Queue Simulator
+        
+        var printQueue = new Queue<string>();
+        printQueue.Enqueue("Report.pdf");
+        printQueue.Enqueue("Invoice.pdf");
+        printQueue.Enqueue("Letter.docx");
+        printQueue.Enqueue("Resume.pdf");
+        printQueue.Enqueue("Photo.jpg");
+
+        Console.WriteLine("Queue: " + string.Join(", ", printQueue));
+        Console.WriteLine($"Count: {printQueue.Count}");
+
+        Console.WriteLine($"Next to print: {printQueue.Peek()}");
+
+        while (printQueue.Count > 0)
+        {
+            string doc = printQueue.Dequeue();
+            Console.WriteLine($"Printing: {doc}");
+        }
+
+        bool dequeueOk = printQueue.TryDequeue(out string dequeued);
+        Console.WriteLine($"TryDequeue succeeded? {dequeueOk}, result: {(dequeued )}");
+
+        Console.WriteLine();
 
         #endregion
 
